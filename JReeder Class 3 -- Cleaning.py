@@ -89,3 +89,34 @@ s1 = Series(list4)
 s2 = Series(list6)
 
 ## List to DataFrame
+
+#data frames have to have the same length of all parts, 
+## so the series you are combining must be the same len()
+
+zip(list4,list6)
+
+list7 = range(60, 65)
+zip1 = zip(list4, list6, list7)
+df1 = DataFrame(zip1)
+
+df1[1]
+
+zip2 = zip(list4, list6, list7)
+df2 = DataFrame(zip2, columns =['two','apple',':)'])
+
+df2['apple']
+
+df3 = DataFrame(zip2, columns =[2,'apple',':)'])
+
+df3[2]
+
+df3[3:4]
+
+df3[[2,'apple']][3:4]
+
+df4 = DataFrame({ ':(' : list4, 9 : list6}) #loads in order
+
+#dictionary objects use curly brackets { and }. They have keys and in this case
+# the number 9.
+
+
