@@ -65,7 +65,8 @@ pd.concat([df2,df4],axis=0)
 #column bind
 pd.concat([df2,df4],axis=1)
 
-
+pd.concat([df2,df4],axis = 0, ignore_index= True) #ignore index = false is default
+        ##this comand resets the index
 
 
 
