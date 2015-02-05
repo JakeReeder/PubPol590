@@ -30,3 +30,37 @@ unique = ~(t_b | b_t) # negate where either is true
 unique
 unique = ~t_b & ~b_t # same as above
 unique
+
+df3[unique] ##this is things that were never duplicated at all
+
+## DROPPING THOSE DUPLICATE ----------------------------------
+df3.drop_duplicates()
+
+df3.drop_duplicates(take_last=True)
+
+## this is the same as....
+t_b = df3.duplicated()
+df3[~t_b]
+df3.drop_duplicates() == df3[~t_b] ## shows that the above two are perfectly equivalent
+
+## subset criteria
+
+df3.drop_duplicates(['A', 'B'], take_last=True)
+
+#WHEN TO USE ------------------
+##if you want to keep the first duplicated value (from top) and remove others
+df3.drop_duplicates()
+
+#same but from bottom
+df3.drop_duplicates(take_last=True)
+
+## purge all values that are duplicated (including the first instance)
+
+t_b = df3.duplicated()
+b_t = df3.duplicated(take_last = True)
+unique = ~(t_b | b_t) # negate where either is true
+unique
+
+df3[unique] ##these are the only values that are never repeated in the data set
+    #contrast with
+df3.drop_duplicates()
